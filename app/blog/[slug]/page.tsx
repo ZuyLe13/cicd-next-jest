@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default function Page({ params }: Params) {
   return (
     <>
-      {/* <h1>Slug: {slug}</h1> */}
       <p>Dile</p>
       <p>Test</p>
     </>
