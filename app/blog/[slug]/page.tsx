@@ -1,13 +1,20 @@
+import type { Metadata } from "next/dist/types";
+
 type Params = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` };
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  return { title: `Post: ${slug}` };
 }
 
 export default function Page({ params }: Params) {
-  return <h1>Slug: {params.slug}</h1>;
+  return (
+    <>
+      {/* <h1>Slug: {slug}</h1> */}
+      <p>Dile</p>
+      <p>Test</p>
+    </>
+  );
 }
