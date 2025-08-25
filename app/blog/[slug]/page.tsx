@@ -1,8 +1,15 @@
 import type { Metadata } from "next/dist/types";
 
-type Params = {
+interface Params {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  return [
+    { slug: "post-1" },
+    { slug: "post-2" },
+  ];
+}
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
